@@ -340,12 +340,23 @@ vector<Token> Lexer::tokenize()
             if (!tokens.empty()) 
             {
                 TokenType lastType = tokens.back().type;
-                if (lastType == PLUS || lastType == MINUS || lastType == MULTIPLY || 
-                    lastType == DIVIDE || lastType == MODULO || lastType == ASSIGN ||
-                    lastType == LEFT_PAREN || lastType == EQUAL || lastType == NOT_EQUAL ||
-                    lastType == LESS || lastType == GREATER || lastType == LESS_EQUAL ||
-                    lastType == GREATER_EQUAL || lastType == LOGICAL_AND || 
-                    lastType == LOGICAL_OR || lastType == LOGICAL_NOT) 
+                if (lastType == LEFT_PAREN) 
+                {
+                    if (tokens.size() >= 2) 
+                    {
+                        TokenType secondLastType = tokens[tokens.size() - 2].type;
+                        if (secondLastType == IDENT) 
+                        {
+                            isNegative = true;
+                        }
+                    }
+                }
+                else if (lastType == PLUS || lastType == MINUS || lastType == MULTIPLY || 
+                         lastType == DIVIDE || lastType == MODULO || lastType == ASSIGN ||
+                         lastType == EQUAL || lastType == NOT_EQUAL ||
+                         lastType == LESS || lastType == GREATER || lastType == LESS_EQUAL ||
+                         lastType == GREATER_EQUAL || lastType == LOGICAL_AND || 
+                         lastType == LOGICAL_OR || lastType == LOGICAL_NOT) 
                 {
                     isNegative = true;
                 }
