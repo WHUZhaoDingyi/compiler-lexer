@@ -1,0 +1,16 @@
+# 编译生成的文件
+*.o
+*.exe
+*.out
+*.app
+toyc_lexer
+
+# IDE文件
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# 系统文件
+.DS_Store
+Thumbs.db
