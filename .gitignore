@@ -1,0 +1,23 @@
+# build outputs
+/build/
+/CMakeFiles/
+/CMakeCache.txt
+/cmake_install.cmake
+/compile_commands.json
+
+# binaries and objects
+/your_compiler
+*.o
+*.obj
+*.exe
+*.out
+*.a
+*.so
+*.dll
+
+# misc
+/.DS_Store
+*.swp
+*.log
+
+
